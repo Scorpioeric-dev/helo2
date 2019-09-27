@@ -5,13 +5,14 @@ import { connect } from "react-redux";
 import { setUser } from "../ducks/reducer";
 
 class Nav extends Component {
-  componentDidMount(){
-      try{
-          this.getMine()
-      } catch (err) {
-          this.props.history.push('/')
-      }
-  }
+
+//   componentDidMount(){
+//       try{
+//           this.getMine()
+//       } catch (err) {
+//           this.props.history.push('/')
+//       }
+//   }
 
   getMine = () => {
       axios.get('/api/mine').then(res => {

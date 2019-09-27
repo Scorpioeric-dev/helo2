@@ -59,8 +59,8 @@ export default class Dashboard extends Component {
         <input onChange={e => this.handleChange(e,'search')} type='text'/>
         <button onClick={this.searchTitle}>Search</button>
         <input onChange={e => this.handleChange(e,'myPosts')} type='checkbox'/>
-        <button>Reset</button>
         my Posts
+        <button>Reset</button>
         {mapped}
       </div>
     );
