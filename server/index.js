@@ -4,6 +4,7 @@ const massive= require('massive')
 const app = express()
 const session = require('express-session')
 const {connection_string,port,session_secret} = process.env
+const ctrl = require('./controller')
 
 //middleware
 app.use(express.json())
@@ -18,10 +19,12 @@ app.use(session({
 
 
 //endpoints
-app.post('/auth/login')
-app.post('/auth/register')
-
-
+app.post('/auth/login',ctrl.login)
+app.post('/auth/register',ctrl.register)
+app.get('/api/posts',ctrl.getPosts)
+app.get('/api/posts/:userid',ctrl.getUserPosts)
+app.get('/api/mine',ctrl.getSession)
+app.post('/api/logout',ctrl.logout)
 //massive
 
 massive(connection_string).then(db => {
