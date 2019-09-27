@@ -18,6 +18,8 @@ app.use(session({
 
 
 //endpoints
+app.post('/auth/login')
+app.post('/auth/register')
 
 
 //massive

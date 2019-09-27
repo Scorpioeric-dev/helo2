@@ -2,14 +2,15 @@ import React from "react";
 
 import Nav from "./components/Nav";
 import {withRouter} from 'react-router-dom'
-
+import Auth from './components/Auth'
 import routes from "./routes";
 import "./App.css";
 
-function App() {
+function App(props) {
+  console.log(props)
   return (
     <div className="App">
-      {this.props.location.pathname === "/" ? (
+      {props.location.pathname === "/" ? (
         <Auth />
       ) : (
         <div>
