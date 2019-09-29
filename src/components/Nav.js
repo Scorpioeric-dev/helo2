@@ -21,14 +21,14 @@ class Nav extends Component {
   }
   logout = () => {
     axios.post("/api/logout").then(res => {
-      this.props.history.push("/");
+      // this.props.history.push("/Auth");
     });
   };
 
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className='buttons'>
         {this.props.username}
         <img src={this.props.profile_pic} alt="" />
         
