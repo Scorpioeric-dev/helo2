@@ -25,28 +25,31 @@ class Form extends Component {
   render() {
     return (
       <div>
-        <input
-          name="title"
-          type="text"
-          placeholder="Title"
-          onChange={this.handleChange}
-        />
-
-        <textarea
-          onChange={this.handleChange}
-          rows="4"
-          cols="50"
-          name="content"
-          type="text"
-        />
-
-        <input
-          onChange={this.handleChange}
-          name="img"
-          type="text"
-          placeholder="img"
-        />
-        <Img src={this.state.img} alt="" />
+      <Article>
+      <input
+      name="title"
+      type="text"
+      placeholder="Title"
+      onChange={this.handleChange}
+      />
+      
+      <textarea
+      onChange={this.handleChange}
+      rows="4"
+      cols="50"
+      name="content"
+      type="text"
+      placeholder="Type in Content"
+      />
+      
+      <input
+      onChange={this.handleChange}
+      name="img"
+      type="text"
+      placeholder="img"
+      />
+      </Article>
+      <Img src={this.state.img} alt="" />
         <button onClick={this.createPost}>Create Post</button>
       </div>
     );
@@ -68,3 +71,19 @@ const Img = styled.img`
   margin: 80px;
   position: relative;
 `;
+
+const Article = styled.div`
+background: gray;
+color: #ffffff;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 300px;
+justify-content: space-evenly;
+position: absolute;
+left: 90px;
+top: 60px;
+height: 280px;
+padding: 60px;
+ 
+ `

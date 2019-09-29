@@ -53,8 +53,8 @@ export default class Dashboard extends Component {
       return (
         <div key={post.id}>
           <Link to={`/post/${post.id}`}>
-          <Title>Title: {post.title}</Title>
-          <Content>Content: {post.content}</Content>
+            <Title>Title: {post.title}</Title>
+            <Content>Content: {post.content}</Content>
             <User>Username:{post.username}</User>
             <Img src={post.profile_pic} alt="" />
           </Link>
@@ -63,7 +63,9 @@ export default class Dashboard extends Component {
     });
     return (
       <Section>
-        <input onChange={e => this.handleChange(e, "search")} type="text" />
+        <Span>
+          <input onChange={e => this.handleChange(e, "search")} type="text" />
+        </Span>
         <button onClick={this.searchTitle}>Search</button>
         <input onChange={this.flipPost} name="myPosts" type="checkbox" />
         my Posts
@@ -74,8 +76,8 @@ export default class Dashboard extends Component {
 }
 
 const Img = styled.img`
-  height: 60vh;
-  width: 60vw;
+  height: 30vh;
+  width: 30vw;
   box-shadow: 8px 8px black;
   border: solid black;
   margin: 80px;
@@ -93,14 +95,17 @@ const User = styled.h1`
 // const Main = styled.div`
 //   display: flex;
 //   justify-content: space-between;
-  
+
 // `;
 const Section = styled.div`
-display:flex;
-align-content:flex-start;
-align-items:flex-start;
-justify-content:space-around;
-flex-direction:column;
+  display: flex;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: column;
+`;
 
-
-`
+const Span = styled.div`
+  display: flex;
+  flex-direction: row;
+`;

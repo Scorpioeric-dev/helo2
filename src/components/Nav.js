@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import { setUser } from "../ducks/reducer";
+import styled from 'styled-components'
 
 class Nav extends Component {
 
@@ -30,9 +31,9 @@ class Nav extends Component {
     return (
       <div className='buttons'>
         {this.props.username}
-        <img src={this.props.profile_pic} alt="" />
+        <Img src={this.props.profile_pic} alt="" />
         
-        <Link to="/dashBoard">
+        <Link to="/dashboard">
           <button>Home</button>
         </Link>
        
@@ -57,3 +58,14 @@ export default connect(
   mapStateToProps,
   { setUser }
 )(Nav);
+
+
+
+const Img = styled.img`
+  height: 10vh;
+  width: 10vw;
+
+  border: solid black;
+  margin: 80px;
+  position: relative;
+`

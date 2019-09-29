@@ -20,7 +20,7 @@ app.use(
 );
 
 //endpoints
-app.post("/auth/login", ctrl.login);
+app.post("/api/auth/login", ctrl.login);
 app.post("/auth/register", ctrl.register);
 app.get("/api/posts", ctrl.getPosts);
 app.get("/api/posts/:userid", ctrl.getUserPosts);

@@ -19,10 +19,8 @@ export default class Post extends Component {
     });
   };
 
-
-
   render() {
-      console.log(this.props.match.params.postid)
+    console.log(this.props.match.params.postid);
     let onePost = this.state.post.map(post => {
       return (
         <Posts>
@@ -32,7 +30,7 @@ export default class Post extends Component {
           </div>
           <Img src={post.img} alt="post" />
           <h2> Username: {post.username}</h2>
-          <img src={post.profile_pic} alt="profile" />
+          <Profile src={post.profile_pic} alt="profile" />
         </Posts>
       );
     });
@@ -42,15 +40,21 @@ export default class Post extends Component {
 
 const Posts = styled.div`
   display: flex;
-  border: 1px solid red;
   justify-content: space-between;
 `;
 const Img = styled.img`
   height: 30vh;
   width: 30vw;
-  
+
   border: solid black;
   margin: 80px;
   position: relative;
 `;
+const Profile = styled.img`
+  height: 50vh;
+  width: 30vw;
 
+  border: solid black;
+  margin: 80px;
+  position: relative;
+`;

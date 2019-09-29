@@ -58,7 +58,7 @@ module.exports = {
   post: async (req, res) => {
     const db = req.app.get("db");
     const { userid } = req.session.user.id;
-    console.log("params", req.params.userid);
+    // console.log("params", req.params.user.id);
     console.log("sessions", req.session.user.id);
     const { img, title, content } = req.body;
     const posts = await db.create_posts([
@@ -69,6 +69,15 @@ module.exports = {
     ]);
     res.status(200).send(posts);
   },
+  // post: async(req,res) => {
+  //   const db = req.app.get('db')
+  //   const {userid} = req.session.user.id
+  //   console.log('params',req.params.userid)
+  //   console.log('sessions',req.session.user.id)
+  //   const {img,title,content} = req.body
+  //   const posts = await db.create_post([title,img,content,req.session.user.id])
+  //   res.status(200).send(posts)
+  // },
   getSession: (req, res) => {
     if (req.session) {
       res.status(200).send(req.session);
@@ -76,7 +85,7 @@ module.exports = {
   },
   logout: (req, res) => {
     req.session.destroy();
-    console.log("hit", req.session);
+    // console.log("hit", req.session);
     res.status(200).send({ message: "Logged out" });
   }
 };

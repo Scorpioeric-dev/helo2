@@ -18,7 +18,7 @@ class Auth extends Component {
       [key]: e.target.value
     });
   };
-
+//creating a new user in db
   register = () => {
     const { username, password } = this.state;
     axios
@@ -26,13 +26,10 @@ class Auth extends Component {
       .then(res => {
         this.setState({
           username: res.data[0],
-          profileImg: res.data[0]
+          profile_pic: res.data[0]
         });
-        this.props.setUser(
-          res.data[0].username,
-          res.data[0].profile_pic,
-          res.data[0].id
-        );
+        const { username, profile_pic, id: userId } = res.data[0];
+        this.props.setUser({ username, profile_pic, userId });
         this.props.history.push("/dashboard");
       })
       .catch(err => alert(err));
@@ -47,17 +44,17 @@ class Auth extends Component {
   //   this.props.history.push("/dashboard");
   //   swal.fire(res.data.message);
   // };
-
+//allowing access to a registered user
   login = () => {
     const { username, password } = this.state;
     axios.post("/api/auth/login", { username, password }).then(res => {
       this.setState({
         username: res.data[0],
-        profileImg: res.data[0]
+        profile_pic: res.data[0]
       });
       console.log(res.data);
-      const { username, profile_pic: profileImg, id: userId } = res.data[0];
-      this.props.setUser({ username, profileImg, userId });
+      const { username, profile_pic, id: userId } = res.data[0];
+      this.props.setUser({ username, profile_pic, userId });
       this.props.history.push("/dashboard");
     });
   };
@@ -67,18 +64,18 @@ class Auth extends Component {
       <Main>
         <input
           type="text"
-          placeholder="Login"
+          placeholder="Username"
           onChange={e => this.handleChange(e, "username")}
         />
+        <input
+        type="password"
+        placeholder="Password"
+        onChange={e => this.handleChange(e, "password")}
+        />
+        
         <Link to="/dashboard">
           <button onClick={this.login}>Login</button>
         </Link>
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={e => this.handleChange(e, "password")}
-        />
-
         <button onClick={this.register}>Register</button>
       </Main>
     );
@@ -114,4 +111,5 @@ const Main = styled.div`
   top: 60px;
   height: 380px;
   padding: 60px;
+  
 `;

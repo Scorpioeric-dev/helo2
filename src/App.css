@@ -12,9 +12,15 @@
   text-align: center;
 }
 .buttons{
-  border-radius: 8px;
-  justify-content:space-between;
+  border-radius: 10px;
+  justify-content:center;
+  padding: 30px;
+  align-content: space-around;
   display:flex;
+  color:blue;
+  float:left;
+
+
 }
 
 
