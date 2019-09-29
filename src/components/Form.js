@@ -49,8 +49,10 @@ class Form extends Component {
       placeholder="img"
       />
       </Article>
-      <Img src={this.state.img} alt="" />
-        <button onClick={this.createPost}>Create Post</button>
+      <Img src={this.state.img} alt="preview" />
+      
+      <button onClick={this.createPost}>Create Post</button>
+      
       </div>
     );
   }
@@ -64,12 +66,15 @@ function mapStateToProps(reduxState) {
 export default connect(mapStateToProps)(Form);
 
 const Img = styled.img`
-  height: 40vh;
+  height: 50vh;
   width: 40vw;
-
-  border: solid black;
+  display:flex;
+  border: solid pink;
   margin: 80px;
-  position: relative;
+  position: absolute;
+  top:55px;
+  right:40px;
+  margin:auto 5%;
 `;
 
 const Article = styled.div`
@@ -83,7 +88,7 @@ justify-content: space-evenly;
 position: absolute;
 left: 90px;
 top: 60px;
-height: 280px;
+height: 180px;
 padding: 60px;
  
  `
