@@ -45,13 +45,13 @@ const Posts = styled.div`
 const Img = styled.img`
   height: 30vh;
   width: 30vw;
-
+border-radius:50%;
   border: solid black;
   margin: 80px;
-  position: relative;
+  position: fixed;
 `;
 const Profile = styled.img`
-  height: 50vh;
+  height: 30vh;
   width: 30vw;
 
   border: solid black;

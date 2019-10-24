@@ -57,7 +57,7 @@ module.exports = {
   },
   post: async (req, res) => {
     const db = req.app.get("db");
-    const { userid } = req.session.user.id;
+    const { userid } = req.session.user;
     // console.log("params", req.params.user.id);
     console.log("sessions", req.session.user.id);
     const { img, title, content } = req.body;

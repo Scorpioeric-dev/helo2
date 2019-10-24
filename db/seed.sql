@@ -35,3 +35,8 @@ select * from posts;
 
 select * from users1
 where username = 'batman' and password = 'aaa'; 
+
+
+
+-- alter table posts
+-- drop column img;
